@@ -2,7 +2,11 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
-chatbot = ChatBot('Ron Obvious')
+chatbot = ChatBot('Ron Obvious',logic_adapters=[
+        'chatterbot.logic.MathematicalEvaluation',
+        'chatterbot.logic.TimeLogicAdapter',
+        'chatterbot.logic.BestMatch'
+    ])
 
 
 trainer = ListTrainer(chatbot)
